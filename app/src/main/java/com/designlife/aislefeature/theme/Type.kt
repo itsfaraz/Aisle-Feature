@@ -50,6 +50,40 @@ val headerStyle = TextStyle(
     fontWeight = FontWeight.Medium
 )
 
+val authHeader = TextStyle(
+    color = Color.Black,
+    fontFamily = fontFamily,
+    fontSize = 30.sp,
+    fontWeight = FontWeight.W800,
+    lineHeight = 36.sp
+)
+
+val authHeaderSmall = TextStyle(
+    color = Color.Black,
+    fontFamily = fontFamily,
+    fontSize = 18.sp,
+    fontWeight = FontWeight.W500,
+    lineHeight = 22.sp
+)
+
+val fieldTextStyle = TextStyle(
+    color = Color.Black,
+    fontFamily = fontFamily,
+    fontSize = 18.sp,
+    fontWeight = FontWeight.W700,
+    lineHeight = 22.sp
+)
+
+
+val buttonTextStyle = TextStyle(
+    color = Color.Black,
+    fontFamily = fontFamily,
+    fontSize = 14.sp,
+    fontWeight = FontWeight.W700,
+    lineHeight = 22.sp
+)
+
+
 val contentStyle_One = TextStyle(
     color = Color.Black,
     fontFamily = fontFamily,

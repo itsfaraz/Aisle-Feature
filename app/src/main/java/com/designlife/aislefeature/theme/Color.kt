@@ -8,6 +8,11 @@ val Purple500 = Color(0xFF6200EE)
 val Purple700 = Color(0xFF3700B3)
 val Teal200 = Color(0xFF03DAC5)
 
+val InputBorderColor = Color(0xFFC4C4C4)
+val AuthButtonColor = Color(0xFFF9CB10)
+val AuthButtonDisabledColor = Color(0xFFE0B403)
+
+
 
 val ButtonPrimary = Color(0xFF5779F4)
 val PrimaryCardColor = Color(0xFFA5D8CA)
