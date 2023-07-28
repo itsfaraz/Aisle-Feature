@@ -14,6 +14,8 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.draw.blur
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -25,34 +27,44 @@ import com.designlife.aislefeature.theme.profileImageStyle
 @Composable
 fun RecommendedProfile(
     avatar : String,
-    name : String
+    name : String,
+    isSecond : Boolean = false
 ) {
-    Box(modifier = Modifier
-        .wrapContentWidth()
-        .wrapContentHeight()
-        .clip(RoundedCornerShape(20.dp)),
-        contentAlignment = Alignment.BottomStart
+    Row(
+        modifier = Modifier.fillMaxWidth(if (isSecond)1F else .5F),
+        horizontalArrangement = Arrangement.Center
     ) {
-        AsyncImage(
-            modifier = Modifier
-                .width(168.dp)
-                .height(255.dp)
-                .clip(RoundedCornerShape(15.dp)),
-            model = avatar,
-            contentDescription = "Avatar",
-            contentScale = ContentScale.FillBounds
-        )
-        Row(
-            modifier = Modifier.padding(start = 10.dp).wrapContentWidth(),
-            horizontalArrangement = Arrangement.Start
+        Box(modifier = Modifier
+            .wrapContentWidth()
+            .wrapContentHeight()
+            .clip(RoundedCornerShape(15.dp)),
+            contentAlignment = Alignment.BottomStart
         ) {
-            Text(
-                text = name, style = profileImageStyle.copy(
-                    color = Color.White,
-                    fontSize = 18.sp
-                )
+            AsyncImage(
+                modifier = Modifier
+                    .width(168.dp)
+                    .height(255.dp)
+                    .clip(RoundedCornerShape(15.dp))
+                    .blur(radiusX = 15.dp, radiusY = 15.dp),
+                model = avatar,
+                contentDescription = "Avatar",
+                contentScale = ContentScale.FillBounds
             )
-        }
+            Row(
+                modifier = Modifier
+                    .padding(start = 10.dp)
+                    .wrapContentWidth(),
+                horizontalArrangement = Arrangement.Start
+            ) {
+                Text(
+                    text = name, style = profileImageStyle.copy(
+                        color = Color.White,
+                        fontSize = 18.sp
+                    )
+                )
+            }
 
+        }
     }
+
 }

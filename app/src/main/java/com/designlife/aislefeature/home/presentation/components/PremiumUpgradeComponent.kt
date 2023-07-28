@@ -46,7 +46,7 @@ fun PremiumUpgradeComponent(
             Text(text = stringResource(id = R.string.premium_update_msg), style = profileImageContentStyle.copy(color = Color.Black))
         }
         Column(
-            modifier = Modifier.padding(end = 15.dp).fillMaxWidth(),
+            modifier = Modifier.padding(end = 25.dp).fillMaxWidth(),
             verticalArrangement = Arrangement.Bottom,
             horizontalAlignment = Alignment.End
         ) {

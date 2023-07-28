@@ -21,6 +21,7 @@ import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.ViewModelProvider
 import com.designlife.aislefeature.R
+import com.designlife.aislefeature.common.presentation.components.CustomProgressBar
 import com.designlife.aislefeature.common.utils.AppServiceLocator
 import com.designlife.aislefeature.common.utils.Constants
 import com.designlife.aislefeature.home.domain.entities.ProfileData
@@ -76,7 +77,7 @@ class HomeFragment : Fragment() {
                 val selectedScreenType = viewmodel.selectedScreenItemType.value
                 val topNoteBanner = if (viewmodel.topNotes.value.isNotEmpty()) viewmodel.topNotes.value[0] else ProfileData.TopNotes()
                 val likedProfile = viewmodel.likedProfiles.value
-
+                val progressBar = viewmodel.progressBar.value
                 Box(
                     modifier = Modifier.fillMaxSize(),
                     contentAlignment = Alignment.Center
@@ -122,7 +123,7 @@ class HomeFragment : Fragment() {
                                                     val first = pairList[0]
                                                     val second = pairList[1]
                                                     RecommendedProfile(avatar = first.avatar ?: "", name = first.firstName ?: "")
-                                                    RecommendedProfile(avatar = second.avatar ?: "", name = second.firstName ?: "")
+                                                    RecommendedProfile(avatar = second.avatar ?: "", name = second.firstName ?: "", isSecond = true)
                                                 }else{
                                                     val first = pairList[0]
                                                     RecommendedProfile(avatar = first.avatar ?: "", name = first.firstName ?: "")
@@ -145,6 +146,17 @@ class HomeFragment : Fragment() {
                             }
                         }
                     }
+
+                    if (progressBar){
+                        Box(
+                            modifier = Modifier
+                                .fillMaxSize(),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            CustomProgressBar()
+                        }
+                    }
+
                     Box(
                         modifier = Modifier.fillMaxSize(),
                         contentAlignment = Alignment.BottomEnd

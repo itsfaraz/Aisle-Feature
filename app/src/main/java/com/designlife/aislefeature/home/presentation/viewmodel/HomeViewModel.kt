@@ -55,6 +55,7 @@ class HomeViewModel(
                     }
                 }
             }
+            _progressBar.value = false
         }
     }
 
