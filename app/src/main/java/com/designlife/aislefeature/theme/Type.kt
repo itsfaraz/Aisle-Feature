@@ -31,7 +31,7 @@ val Typography = Typography(
     */
 )
 
-val fontFamily = FontFamily(
+val fontFamilyInter = FontFamily(
     Font(R.font.inter_regular),
     Font(R.font.inter_medium, weight = FontWeight.Medium),
     Font(R.font.inter_black, weight = FontWeight.Normal),
@@ -43,16 +43,27 @@ val fontFamily = FontFamily(
     Font(R.font.inter_thin, weight = FontWeight.Thin)
 )
 
+val fontFamilyGilRoy = FontFamily(
+    Font(R.font.gilroy_regular),
+    Font(R.font.gilroy_medium, weight = FontWeight.Medium),
+    Font(R.font.gilroy_black, weight = FontWeight.Normal),
+    Font(R.font.gilroy_bold, weight = FontWeight.Bold),
+    Font(R.font.gilroy_extrabold, weight = FontWeight.ExtraBold),
+    Font(R.font.gilroy_light, weight = FontWeight.Light),
+    Font(R.font.gilroy_semibold, weight = FontWeight.SemiBold),
+    Font(R.font.gilroy_thin, weight = FontWeight.Thin)
+)
+
 val headerStyle = TextStyle(
     color = Color.Black,
-    fontFamily = fontFamily,
+    fontFamily = fontFamilyInter,
     fontSize = 16.sp,
     fontWeight = FontWeight.Medium
 )
 
 val authHeader = TextStyle(
     color = Color.Black,
-    fontFamily = fontFamily,
+    fontFamily = fontFamilyInter,
     fontSize = 30.sp,
     fontWeight = FontWeight.W800,
     lineHeight = 36.sp
@@ -60,7 +71,7 @@ val authHeader = TextStyle(
 
 val authHeaderSmall = TextStyle(
     color = Color.Black,
-    fontFamily = fontFamily,
+    fontFamily = fontFamilyInter,
     fontSize = 18.sp,
     fontWeight = FontWeight.W500,
     lineHeight = 22.sp
@@ -68,7 +79,7 @@ val authHeaderSmall = TextStyle(
 
 val fieldTextStyle = TextStyle(
     color = Color.Black,
-    fontFamily = fontFamily,
+    fontFamily = fontFamilyInter,
     fontSize = 18.sp,
     fontWeight = FontWeight.W700,
     lineHeight = 22.sp
@@ -77,7 +88,7 @@ val fieldTextStyle = TextStyle(
 
 val buttonTextStyle = TextStyle(
     color = Color.Black,
-    fontFamily = fontFamily,
+    fontFamily = fontFamilyInter,
     fontSize = 14.sp,
     fontWeight = FontWeight.W700,
     lineHeight = 22.sp
@@ -86,7 +97,39 @@ val buttonTextStyle = TextStyle(
 
 val contentStyle_One = TextStyle(
     color = Color.Black,
-    fontFamily = fontFamily,
+    fontFamily = fontFamilyInter,
     fontSize = 10.sp,
     fontWeight = FontWeight.Medium
+)
+
+val contentHeaderStyle = TextStyle(
+    color = Color.Black,
+    fontFamily = fontFamilyGilRoy,
+    fontSize = 27.sp,
+    fontWeight = FontWeight.W800,
+    lineHeight = 33.sp
+)
+
+val contentSubHeaderStyle = TextStyle(
+    color = Color.Black,
+    fontFamily = fontFamilyGilRoy,
+    fontSize = 18.sp,
+    fontWeight = FontWeight.W600,
+    lineHeight = 21.sp
+)
+
+val profileImageStyle = TextStyle(
+    color = Color.White,
+    fontFamily = fontFamilyGilRoy,
+    fontSize = 22.sp,
+    fontWeight = FontWeight.W800,
+    lineHeight = 22.sp
+)
+
+val profileImageContentStyle = TextStyle(
+    color = Color.White,
+    fontFamily = fontFamilyGilRoy,
+    fontSize = 15.sp,
+    fontWeight = FontWeight.W600,
+    lineHeight = 18.sp
 )

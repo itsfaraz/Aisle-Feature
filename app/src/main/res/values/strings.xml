@@ -5,4 +5,11 @@
     <string name="enter_phone_text">Enter Your\nPhone Number</string>
     <string name="enter_otp_text">Enter The\nOTP</string>
     <string name="continue_text">Continue</string>
+    <string name="upgrade_text">Upgrade</string>
+    <string name="notes_text">Notes</string>
+    <string name="notes_message">Personal messages to you</string>
+    <string name="review_notes">Tap to review 50+ notes</string>
+    <string name="interested_note">Interested In You</string>
+    <string name="premium_update_msg">Premium members can\nview all their likes at once</string>
+
 </resources>

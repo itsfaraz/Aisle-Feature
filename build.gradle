@@ -8,6 +8,7 @@ buildscript {
         lifecycle_version = '2.4.0'
         room_version = '2.4.3'
         retrofit_version = '2.9.0'
+        coil_version = '2.1.0'
     }
 }
 

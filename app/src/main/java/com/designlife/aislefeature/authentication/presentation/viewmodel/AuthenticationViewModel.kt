@@ -34,6 +34,9 @@ class AuthenticationViewModel(
     private val _otpNumber : MutableState<String> = mutableStateOf("")
     val otpNumber = _otpNumber
 
+    private val _token : MutableState<String> = mutableStateOf("")
+    val token = _token
+
     private val _countDown : MutableState<Int> = mutableStateOf(60)
     val countDown = _countDown
 
@@ -86,13 +89,14 @@ class AuthenticationViewModel(
     private fun launchVerifyOtpRequest() {
         _progressBar.value = true
         viewModelScope.launch(Dispatchers.IO) {
-            val status = authenticationRepository.verifyOtpOf(_userNumber.value,_otpNumber.value)
-            if (status){
+            val token = authenticationRepository.fetchTokenOf("+${_countryCode.value}${_userNumber.value}",_otpNumber.value)
+            if (!token.isNullOrEmpty()){
 //                storeUserSession()
+                _token.value = token
             }
 
             withContext(Dispatchers.Main){
-                if (status){
+                if (!token.isNullOrEmpty()){
                     _isUserVerified.value = true
                 }
                 _progressBar.value = false
@@ -103,7 +107,7 @@ class AuthenticationViewModel(
     private fun launchOtpRequest() {
         _progressBar.value = true
         viewModelScope.launch(Dispatchers.IO) {
-            val status = authenticationRepository.fetchOtpOf(_userNumber.value)
+            val status = authenticationRepository.fetchOtpOf("+${_countryCode.value}${_userNumber.value}")
             if (status){
                 withContext(Dispatchers.Main){
                     _isLogin.value = false

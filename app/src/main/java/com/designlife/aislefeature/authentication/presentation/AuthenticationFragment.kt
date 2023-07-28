@@ -16,16 +16,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.unit.dp
+import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.designlife.aislefeature.R
-import com.designlife.aislefeature.authentication.data.api.AuthenticationApi
-import com.designlife.aislefeature.authentication.domain.repository.AuthenticationRepository
 import com.designlife.aislefeature.authentication.presentation.components.AuthComponent
 import com.designlife.aislefeature.authentication.presentation.viewmodel.AuthenticationViewModel
 import com.designlife.aislefeature.authentication.presentation.viewmodel.AuthenticationViewModelFactory
-import com.designlife.aislefeature.common.domain.AppServiceLocator
+import com.designlife.aislefeature.common.utils.AppServiceLocator
 import com.designlife.aislefeature.common.presentation.components.CustomProgressBar
+import com.designlife.aislefeature.common.utils.Constants
 
 class AuthenticationFragment : Fragment() {
 
@@ -57,7 +57,7 @@ class AuthenticationFragment : Fragment() {
                     val progressBar = viewmodel.progressBar.value
                     val isUserVerified = viewmodel.isUserVerified.value
                     val buttonVisibility = viewmodel.buttonVisibility.value
-
+                    val token = viewmodel.token.value
                     Box(modifier = Modifier.fillMaxSize().alpha(if(progressBar) 0.4f else 1F)) {
                         Column(modifier = Modifier.fillMaxSize()) {
                             Spacer(modifier = Modifier.height(80.dp))
@@ -94,7 +94,12 @@ class AuthenticationFragment : Fragment() {
                     }
 
                     if (isUserVerified){
-                        findNavController().navigate(R.id.homeFragment)
+                        val bundle = bundleOf()
+                        bundle.putString(Constants.TOKEN,token)
+                        findNavController().navigate(
+                            resId = R.id.homeFragment,
+                            args = bundle
+                        )
                     }
                 }
             }

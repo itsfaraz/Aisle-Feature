@@ -12,5 +12,9 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.designlife.aislefeature.home.presentation.HomeFragment"
-        android:label="fragment_home" />
+        android:label="fragment_home" >
+        <argument
+            android:name="token"
+            app:argType="string" />
+    </fragment>
 </navigation>

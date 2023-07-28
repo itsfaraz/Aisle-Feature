@@ -1,20 +1,23 @@
 package com.designlife.aislefeature.authentication.data.api
 
+import com.designlife.aislefeature.authentication.data.jdo.request.OtpRequest
+import com.designlife.aislefeature.authentication.data.jdo.response.StatusResponse
+import com.designlife.aislefeature.authentication.data.jdo.request.TokenRequest
+import com.designlife.aislefeature.authentication.data.jdo.response.TokenResponse
 import retrofit2.Response
+import retrofit2.http.Body
 import retrofit2.http.POST
-import retrofit2.http.Query
 
 interface AuthenticationApi {
 
-    @POST("/users/phone_number_login")
+    @POST("V1/users/phone_number_login")
     suspend fun fetchOTP(
-        @Query("number",encoded = false) number : String
-    ) // : Response<>
+        @Body otpRequest : OtpRequest
+    )  : Response<StatusResponse>
 
-    @POST("/users/verify_otp")
+    @POST("V1/users/verify_otp")
     suspend fun verifyOTP(
-        @Query("number",encoded = false) number: String,
-        @Query("otp",encoded = false) otp : String
-    ) // : Response<>
+        @Body tokenRequest: TokenRequest,
+    )  : Response<TokenResponse>
 
 }
